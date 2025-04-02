@@ -1,6 +1,6 @@
 import passport from "passport";
 
-import "./jwt.strategy";
-import './local.strategy';
+import './local.strategy.js';
+import "./jwt.strategy.js";
 
 export default passport;

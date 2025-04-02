@@ -15,7 +15,7 @@ const PORT = config.PORT
 
 app.use(
     session({
-      secret: config.SESSION_SECRET,
+      secret: config.SECRET_SESSION,
       resave: true, // Evita guardar la sesión si no hay cambios
       saveUninitialized: true, // Guarda sesiones vacías
       cookie: { secure: false, maxAge: 500000 }, // Debe estar en true si usas HTTPS
@@ -24,7 +24,11 @@ app.use(
 
 app.use(cookieParser())
 app.use(passport.initialize())
+app.use(passport.session())
 app.use('/api', router)
+app.use((req, res) => {
+  res.status(404).json({ error: "Recurso no encontrado" });
+});
 app.listen(process.env.PORT,() => {
     console.log(`http://localhost:${PORT}`)
 })
