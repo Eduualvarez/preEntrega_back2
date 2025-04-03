@@ -6,6 +6,7 @@ import { registerSchema } from "../schemas/register.schema.js";
 import { validateSchema } from "../middlewares/validateSchema.middleware.js";
 import { authRole } from "../middlewares/authRole.middleware.js";
 import { createToken } from "../utils/jwt.js";
+
 const router = Router()
 router.post("/login",validateSchema(loginSchema), passportCall("login"), async (req, res) => {
     try {
@@ -28,7 +29,7 @@ router.post("/register", validateSchema(registerSchema), passportCall("register"
       res.status(201).json({ message: req.user });
     } catch (error) {
       console.log(error);
-      res.status(500).json({ status: "error", message: "Internal Server Error" });
+      res.status(500).json({ status: "error", message: "Internal Server Error regi" });
     }
   });
   

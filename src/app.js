@@ -3,14 +3,15 @@ import { mongoDB_Connection } from "./config/mongoDB.connection.js";
 import { config } from "./config/envs.config.js";
 import cookieParser from "cookie-parser";
 import passport from "passport";
-import router from "./routes/router.js";
+import routes from "./routes/router.js";
 import session from "express-session";
 
 const app = express()
+await mongoDB_Connection()
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
-await mongoDB_Connection()
 const PORT = config.PORT
 
 app.use(
@@ -24,8 +25,8 @@ app.use(
 
 app.use(cookieParser())
 app.use(passport.initialize())
-app.use(passport.session())
-app.use('/api', router)
+
+app.use('/api', routes)
 app.use((req, res) => {
   res.status(404).json({ error: "Recurso no encontrado" });
 });
