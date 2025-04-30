@@ -2,7 +2,7 @@ import express from "express"
 import { mongoDB_Connection } from "./config/mongoDB.connection.js";
 import { config } from "./config/envs.config.js";
 import cookieParser from "cookie-parser";
-import passport from "passport";
+import passport from "./config/passport/passport.config.js";
 import routes from "./routes/router.js";
 import session from "express-session";
 

@@ -1,5 +1,5 @@
 import passport from "passport";
-import { Strategy } from "passport-local";
+import  Strategy  from "passport-local";
 import { userDao } from "../../persistance/mongo/dao/user.dao.js";
 import { comparePassword, hashPassword } from "../../utils/hashPassword.js";
 import { cartDao } from "../../persistance/mongo/dao/cart.dao.js";
