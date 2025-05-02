@@ -106,9 +106,11 @@ class CartController {
           const cart = await cartServices.getCartById(cid);
           if (!cart) return res.status(404).json({ status: "Error", msg: `No se encontró el carrito con el id ${cid}` });
     
+
           const total = await cartServices.purchaseCart(cid);
-          const ticket = await ticketService.createTicket(total, req.user.email);
+          const ticket = await ticketService.createTicket(total, req.body.email);
     
+        
           res.status(200).json({ status: "ok", ticket });
         } catch (error) {
           error_log(error, req);
