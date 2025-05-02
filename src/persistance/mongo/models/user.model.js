@@ -2,6 +2,7 @@ import mongoose from "mongoose"
 const userCollection = "Users"
 const userSchema = new mongoose.Schema({
         
+    age: Number,
     first_name: String,
     last_name: String,
     email: String,
