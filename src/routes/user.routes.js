@@ -12,6 +12,6 @@ router.get("/:id", userExist, userController.getOneById);
 
 router.delete("/:id",authRole(["admin"]), userExist, userController.delete);
 
-router.put("/:id",authRole(["admin"]), userExist, userController.update);
+router.put("/:id",authRole(["admin", "user"]), userExist, userController.update);
 
 export default router;

@@ -3,6 +3,7 @@ import { cartDao } from "../persistance/mongo/dao/cart.dao.js";
 import { productDao } from "../persistance/mongo/dao/product.dao.js";
 import { error_log } from "../utils/error_log.js";
 import { cartServices } from "../services/cart.services.js";
+import { ticketService } from "../services/ticket.services.js";
 
 class CartController {
     async createCart(req = request, res = response) {
